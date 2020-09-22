@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>并发编程中的锁泄露 | SunJon99的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：在学习 java 多线程的时候，《Java 核心技术》书中就警告说：把解锁操作放在 finally 子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放。否则，其他线程将会永远阻塞。        说的这么严重，咱也没见识过啊。咱就看看呗。  锁泄露问题​        上面说了锁泄露问题的严重性，那么到底什么是锁泄露呢？ ​        顾名思义，就是某个对象锁泄露了。在我们">
+  <meta name="description" content="摘要：在学习 java 多线程的时候，《Java 核心技术》书中就警告说：把解锁操作放在 finally 子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放。否则，其他线程将会永远阻塞。        说的这么严重，咱也没见识过啊。咱就看看呗。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发编程中的锁泄露">
 <meta property="og:url" content="http://yoursite.com/2020/08/18/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%94%81%E6%B3%84%E9%9C%B2/index.html">
 <meta property="og:site_name" content="SunJon99的博客">
-<meta property="og:description" content="摘要：在学习 java 多线程的时候，《Java 核心技术》书中就警告说：把解锁操作放在 finally 子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放。否则，其他线程将会永远阻塞。        说的这么严重，咱也没见识过啊。咱就看看呗。  锁泄露问题​        上面说了锁泄露问题的严重性，那么到底什么是锁泄露呢？ ​        顾名思义，就是某个对象锁泄露了。在我们">
+<meta property="og:description" content="摘要：在学习 java 多线程的时候，《Java 核心技术》书中就警告说：把解锁操作放在 finally 子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放。否则，其他线程将会永远阻塞。        说的这么严重，咱也没见识过啊。咱就看看呗。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-18T12:17:23.000Z">
-<meta property="article:modified_time" content="2020-08-18T12:43:34.980Z">
+<meta property="article:modified_time" content="2020-08-19T03:50:14.319Z">
 <meta property="article:author" content="SunJon99">
 <meta property="article:tag" content="Java,并发">
 <meta name="twitter:card" content="summary">
@@ -183,6 +183,8 @@
       
         <hr>
 <p>摘要：在学习 java 多线程的时候，《Java 核心技术》书中就警告说：把解锁操作放在 finally 子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放。否则，其他线程将会永远阻塞。<br>        说的这么严重，咱也没见识过啊。咱就看看呗。</p>
+<a id="more"></a>
+
 <hr>
 <h1 id="锁泄露问题"><a href="#锁泄露问题" class="headerlink" title="锁泄露问题"></a>锁泄露问题</h1><p>​        上面说了锁泄露问题的严重性，那么到底什么是锁泄露呢？</p>
 <p>​        顾名思义，就是某个对象锁泄露了。在我们需要对临界区数据进行操作的时候，需要将这个临界区锁起来，不能让它被别的线程操作了。这样就会对原有的数据造成污染。在我们锁住这个临界区，然后当前的线程操作完毕之后，我们需要将这个锁给释放掉。这样别人就能够继续使用这个临界区的数据了。 重点来啦！！如果我们在锁住这个临界区之后，执行任务的过程中出现了异常。随着异常的抛出，如果没有一些保障的话，就会出现这个锁没有及时解锁的问题。 那么后面要使用这个数据的线程也将不能正常工作。这就是锁泄露问题。</p>
@@ -302,6 +304,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="../%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          进程调度算法回顾
+        
+      </div>
+    </a>
   
   
     <a href="../../14/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
@@ -451,11 +462,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java,并发</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java,并发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,11 +494,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
