@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>排序算法之插入排序 | SunJon99的博客</title>
+  <title>排序算法之归并排序 | SunJon99的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：插入排序算法是排序算法中最简单最容易理解的了。当然后面的几个也是挺容易理解的。。。">
+  <meta name="description" content="摘要：归并排序是一种充分体现了分治思想的排序算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法之插入排序">
-<meta property="og:url" content="http://yoursite.com/2020/09/21/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:title" content="排序算法之归并排序">
+<meta property="og:url" content="http://yoursite.com/2020/09/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="SunJon99的博客">
-<meta property="og:description" content="摘要：插入排序算法是排序算法中最简单最容易理解的了。当然后面的几个也是挺容易理解的。。。">
+<meta property="og:description" content="摘要：归并排序是一种充分体现了分治思想的排序算法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-21T10:56:25.000Z">
-<meta property="article:modified_time" content="2020-09-21T11:59:18.929Z">
+<meta property="article:published_time" content="2020-09-27T14:00:34.000Z">
+<meta property="article:modified_time" content="2020-09-27T15:30:44.064Z">
 <meta property="article:author" content="SunJon99">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -161,20 +161,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-排序算法之插入排序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-排序算法之归并排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      排序算法之插入排序
+      排序算法之归并排序
     </h1>
   
 
         
         <a href="" class="archive-article-date">
-  	<time datetime="2020-09-21T10:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
+  	<time datetime="2020-09-27T14:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
 </a>
         
       </header>
@@ -182,22 +182,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<hr>
-<p>摘要：插入排序算法是排序算法中最简单最容易理解的了。当然后面的几个也是挺容易理解的。。。</p>
+<p>摘要：归并排序是一种充分体现了分治思想的排序算法</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="插入排序算法"><a href="#插入排序算法" class="headerlink" title="插入排序算法"></a>插入排序算法</h1><p>​        </p>
-<p>​        插入排序算法的核心就是：假设数列的前面部分已经排好序，这时候你只需要将后面的数一个一个地插入到它合理的位置。</p>
-<p>​                                                        在实际操作中，我们在寻找合适位置的时候，需要将前面数列中的一些数往后放。这时候我们</p>
-<p>​                                                        需要为这个移动的行为设置一个临时存储空间，将要插入的元素放入这个临时空间。那么我们</p>
-<p>​                                                        之后要移动的行为腾出空间。另外，这个比较的时候是从后往前比较的。</p>
-<p>​        那么废话不多说，之间上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            temp = nums[i];</span><br><span class="line">            <span class="keyword">int</span> j = i-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; nums[j] &gt; temp )&#123;</span><br><span class="line">                nums[j+<span class="number">1</span>] = nums[j];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[j+<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="归并排序算法"><a href="#归并排序算法" class="headerlink" title="归并排序算法"></a>归并排序算法</h1><p>​        在归并排序算法中，我们需要知道的是：这里的排序思想是，逐级切半，直至只剩下一个元素为止。当只剩下一个元素时，我们认为这个元组一个有序序列。然后回到上一层，我们将两个元组进行融合操作。这里的重点就是这个 merge 操作。<br>​        在 merge 操作中，我们需要复制前一个元组的全部数据。然后我们将设置一个标志 sorted 代表 融合过程中已经有序的长度，一个behindArrayIndex 标志代表后面一个元素的光标位置，一个 i 标志 代表复制前一个元组数据的 temp 数组中的光标位置。 在比较过程中，我们利用 temp 中元素跟后面一个元组中的数据进行比较。每次每次比较完成之后，我们会将一个较小的数放入合适的位置，然后这时候将已排序的长度进行加一。当我们选择一个元组中较小数的同时，也不要忘记让光标向后移动一个单位。我们的排序动作会在有序长度达到 end 时结束。</p>
+<p>下面是代码展示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] temps;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        temps = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length &gt;&gt; <span class="number">1</span>];</span><br><span class="line">        mergeSort(nums,<span class="number">0</span>,nums.length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> begin,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 如果 begin 和 end 之间只剩下一个元素，那么就返回</span></span><br><span class="line"><span class="comment">         * 如果没有，那么就向下进行递归操作，然后当第二次经过这里的时候进行融合操作。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">int</span> mid = ((end - begin) &gt;&gt; <span class="number">1</span>) + begin;</span><br><span class="line">        <span class="keyword">if</span> ((end-begin) &lt;= <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            mergeSort(nums,begin,mid);</span><br><span class="line">            mergeSort(nums,mid,end);</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 进行排序操作</span></span><br><span class="line"><span class="comment">             * 首先将前面的一段数组复制到 temps 数组中，然后将前端数组填满排好序的数</span></span><br><span class="line"><span class="comment">             *</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 这里开始对两个空间进行融合。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; mid; i++) &#123;</span><br><span class="line">            temps[i-begin] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 排序过程：（假设这两个数组已经是有序数组）</span></span><br><span class="line"><span class="comment">         *    设立三个标记：分别对应两个数组，比较这两个标记位置的大小，最后一个标记已经排好序的数组的位置（长度）</span></span><br><span class="line"><span class="comment">         *    将较小的数覆盖到前面的数组，然后最小元素的标记位置向后移动</span></span><br><span class="line"><span class="comment">         *    如果前面一个标记提前到达，就不用多余操作；</span></span><br><span class="line"><span class="comment">         *    如果后面一个标记提前到达，那么就将后面的数覆盖到</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>,sorted = begin,behindArrayIndex = mid;sorted &lt; end;sorted ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (behindArrayIndex == end)&#123;</span><br><span class="line">                nums[sorted]=temps[i];</span><br><span class="line">                i++;</span><br><span class="line">                System.out.println(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(temps[i] &lt;= nums[behindArrayIndex])&#123;</span><br><span class="line">                nums[sorted] = temps[i];</span><br><span class="line">                i++;</span><br><span class="line">                System.out.println(<span class="number">2</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                nums[sorted] = nums[behindArrayIndex];</span><br><span class="line">                behindArrayIndex++;</span><br><span class="line">                System.out.println(<span class="number">3</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;i:&quot;</span>+i);</span><br><span class="line">            System.out.println(<span class="string">&quot;sorted:&quot;</span>+sorted);</span><br><span class="line">            System.out.println(<span class="string">&quot;behindArrayIndex:&quot;</span>+behindArrayIndex);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;over&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<p>​        这里是最简单的排序算法，因为需要对 n - 1个数进行插入操作，并且在插入操作的时候，每次都需要往后遍历。所以 插入排序算法的时间复杂度就是 O(n^2)。因为这里需要的只有一个 临时存储的空间 temp ，所以空间的复杂度就是 O(1)。</p>
+
+
+<p>对 n 个元素的序列，执行二路归并算法，则必须做 log2n 趟归并，每一趟归并的时间复杂度是 O(n)，所以二路归并的时间复杂度是 O(log2n)。两路归并排序需要和待排序序列一半多的辅助空间。其空间复杂度为O(n/2)，两路归并排序也是一种稳定性的排序。</p>
 
       
 
@@ -298,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/21/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +309,9 @@
   
 <nav id="article-nav">
   
-    <a href="../%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          排序算法之希尔排序
-        
-      </div>
-    </a>
   
-  
-    <a href="../../../08/19/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">并发编程中的同步问题</div>
+    <a href="../../23/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法之快速排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
