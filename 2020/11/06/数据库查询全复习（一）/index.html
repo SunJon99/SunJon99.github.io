@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>git与github | SunJon99的博客</title>
+  <title>数据库查询全复习（一） | SunJon99的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：介绍github的一些信息">
+  <meta name="description" content="摘要： ​        数据库的各种查询操作的总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git与github">
-<meta property="og:url" content="http://yoursite.com/2020/01/14/git%E4%B8%8Egithub/index.html">
+<meta property="og:title" content="数据库查询全复习（一）">
+<meta property="og:url" content="http://yoursite.com/2020/11/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E5%85%A8%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="SunJon99的博客">
-<meta property="og:description" content="摘要：介绍github的一些信息">
+<meta property="og:description" content="摘要： ​        数据库的各种查询操作的总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-14T06:13:14.000Z">
-<meta property="article:modified_time" content="2020-01-14T07:57:01.784Z">
+<meta property="og:image" content="https://gitee.com/atlas529/pictures/raw/master/img/20201103192832.png">
+<meta property="article:published_time" content="2020-11-06T00:41:38.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:42:18.657Z">
 <meta property="article:author" content="SunJon99">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/atlas529/pictures/raw/master/img/20201103192832.png">
   
     <link rel="alternative" href="/atom.xml" title="SunJon99的博客" type="application/atom+xml">
   
@@ -161,58 +163,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git与github" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据库查询全复习（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      git与github
+      数据库查询全复习（一）
     </h1>
   
 
         
         <a href="" class="archive-article-date">
-  	<time datetime="2020-01-14T06:13:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
+  	<time datetime="2020-11-06T00:41:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>摘要：介绍github的一些信息</p>
+        <p>摘要：</p>
+<p>​        数据库的各种查询操作的总结</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="github能为我们提供什么？"><a href="#github能为我们提供什么？" class="headerlink" title="github能为我们提供什么？"></a>github能为我们提供什么？</h1><h2 id="1-为开源代码提供版本库"><a href="#1-为开源代码提供版本库" class="headerlink" title="1.为开源代码提供版本库"></a>1.为开源代码提供版本库</h2><p>​        对于开源项目，账户是免费的，并且所有账户可以创建不限数量的公共版本库。Github有4种账户类型：免费个人账户、付费个人账户、免费组织账户、付费组织账户。要加入一个组织必须要有个人账户。在选择用户名时需要慎重一点，因为默认一个账户只有一次修改有有用户名的机会。一个账户可以关联多个邮箱地址，并且可以随时更改。因此用户名是最永久性的注册信息。</p>
-<p>​        </p>
-<h2 id="2-创建GitHub的版本库"><a href="#2-创建GitHub的版本库" class="headerlink" title="2.创建GitHub的版本库"></a>2.创建GitHub的版本库</h2><p>​        在你创建账户之后，只需要单击最顶部New Repository按钮就可以创建新版本库。也可以通过输入<a target="_blank" rel="noopener" href="http://gihub.com.new来创建新的版本库./">http://gihub.com.new来创建新的版本库。</a></p>
-<p>​        唯一必需的信息是版本库的名字。另外也可以设置项目的描述信息和项目首页的URL来使项目更加容易识别；接下来，需要设置一些版本库的初始信息。根据你现在是否已经有提交，这里有两种途径：</p>
+<h1 id="数据库的查询操作全复习"><a href="#数据库的查询操作全复习" class="headerlink" title="数据库的查询操作全复习"></a>数据库的查询操作全复习</h1><p>[toc]</p>
+<p>知识点概要：</p>
+<p><img src="https://gitee.com/atlas529/pictures/raw/master/img/20201103192832.png"></p>
+<h2 id="1-分页查询"><a href="#1-分页查询" class="headerlink" title="1.分页查询"></a>1.分页查询</h2><p>​        分页查询操作的关键字就是 limit ，我们可以使用 limit 来限制查询结果的输出。</p>
 <ul>
-<li><p>选项一：</p>
-<blockquote>
-<p>如果项目的第一步工作是在开始编写代码前创建GitHub版本库，那么你将需要创建一个占位符文件作为第一次提交。在创建新版本库的时候，你会问及是否创建初始的README文件和.gitignore文件。README文本文件一般用来描述项目意图。至此，项目可以利用命令git clone url 克隆到本地，之后，就可以在本地添加和提交代码了。</p>
-</blockquote>
-</li>
-<li><p>选项二：</p>
-<blockquote>
-<p>如果你已经拥有了一个本地版本库，你可以将GitHub的地址和已经存在的本地版本库链接起来。要做到这一点，需要利用命令git remote add url将GitHub的URL（Git的一个远程地址）添加到已经存在的Git版本库中。</p>
-</blockquote>
-</li>
-<li><p>将本地的内容推送到GitHub</p>
-<blockquote>
-<p>在经过上面的步骤之后，本地版本库已经链接到远程版本库。本地版本库的内容可以推送到GitHub。这需要利用命令git push remote branch。如果分支之前从未发布，明确的命令git push -u origin master比较合适。-u告诉Git去跟踪推送的分支，将它推送到origin远程版本库，同时将它推送到master分支。</p>
-</blockquote>
-<p>一旦将GitHub的版本库和之前的版本库建立联系，之后进行的代码改变就可以简单地通过调用git push来推送。这便产生了使用可访问的中心Git版本库的好处，进行分布式协作的开发人员可以看见其他所有项目参与者提交的更改，即使他们是离线的。</p>
-</li>
+<li>仅仅是限制输出前N行数据</li>
 </ul>
-<h2 id="3-关注者"><a href="#3-关注者" class="headerlink" title="3.关注者"></a>3.关注者</h2><p>​        在GitHub上最简单的社会化编程功能就是”关注“，这个操作就是实际过程中的Watch按钮。它意味着你对GitHub用户、组织或者特定项目感兴趣。</p>
-<h2 id="4-新闻源"><a href="#4-新闻源" class="headerlink" title="4.新闻源"></a>4.新闻源</h2><p>​        在你关注了用户、组织或者版本库之后，在new feed中会根据你关注的对象显示内容。这些新闻源就是你关注的用户版本库或者组织的活动信息。</p>
-<h2 id="5-复刻"><a href="#5-复刻" class="headerlink" title="5.复刻"></a>5.复刻</h2><p>​        复刻其他人的项目是GitHub普及的另外一个概念。用户通过对一个感兴趣的项目进行fork，来获取一个项目代码的私人副本。这个副本可以不经过原作者的任何明确授权进行更改。这不会对核心项目造成任何危险，因为这些更改是发生在复刻的版本库中的，而不是原始版本库中。</p>
-<h2 id="6-创建合并请求"><a href="#6-创建合并请求" class="headerlink" title="6.创建合并请求"></a>6.创建合并请求</h2><p>​        复刻只是对一个项目创建一个私人副本，真正为核心项目带来价值得是合并请求（pull request）。合并请求是在任何用户进行了他觉得有用的提交操作的情况下，向核心项目拥有者发送的通知。<br>​        当一个贡献者完成了一个特性的编码，将它提交到某个命名分支，并且将这个新分支推送到复刻时，他可以转变成合并请求。合并请求可以精确地描述成”围绕一个主题的提交列表“。合并请求通常都基于某个主题分支的全部内容。但是，当不是整个分支的内容都推送到一个发布的分支时，合并请求也可以是一个规模更小的提交。当从下拉的分支选择器中选择了最新推送分支后，可以单击上下文相关的 pull request按钮，这便会发出合并请求。<br>​        合并请求的默认动作包括在当前主题分支上的所有提交。然而，当调用它的时候，可以手动更改提交的范围以及源分支和目标分支。</p>
-<h2 id="7-管理合并请求"><a href="#7-管理合并请求" class="headerlink" title="7.管理合并请求"></a>7.管理合并请求</h2><p>​        在GitHub上，一个成功的项目会有一系列合并请求需要管理。核心项目实例的所有协作者都有管理和处理合并请求的权限。需要注意的是，合并请求可能不是来自复刻的。一些时候，拥有核心项目协作者权限的开发人员仍然会发送合并请求，这是为了在合并分支时能够获取反馈。<br>​        在合并请求之后的概念其实是将通常二元的接受或拒绝操作转变成讨论。讨论伴随着关于合并请求的评论或者关于具体提交的评论。评论可以是指导性的，意味着已经提交的解决方案还需要进一步完善。如果贡献者在合并请求的某个分支上又进行了一些提交操作，推送这些提交后，仍然会在合并请求线程中按顺序显示出来。<br>​        </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">limit</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>指定开始检索的行号，并限制输出</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">limit</span> <span class="number">1</span>,<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>​         注意这里第一个数字 1，代表从索引为 1 的位置开始，输出 2 行数据。</p>
+</blockquote>
+<p>​        我们在项目中的分页操作也可以用到 limit 的这一个特性。</p>
+<h2 id="2-排序检索"><a href="#2-排序检索" class="headerlink" title="2. 排序检索"></a>2. 排序检索</h2><p>​        <strong>排序检索主要是通过 order by 的操作来进行的</strong> 。 一般检索出来的数据并不是以纯粹的随机顺序显示的。如果不进行处理，数据一般将以它在底层表中出现的顺序显示。这可以是数据最初添加到数据库中的顺序，但是如果后来数据进行过更新或删除，则这个顺序将会受到 MySQL 重用回收存储空间的影响。<strong>order by 子句取一个或多个列的名字，据此对数据进行排序。</strong></p>
+<p>按一个列排序：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u_id,u_name <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> u_id;</span><br></pre></td></tr></table></figure>
+
+<p>按多个列排序：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u_id,u_name <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> u_id,u_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​        同样的我们也能指定排序的方向，在这里有==升序（ASC），降序（DESC）==。在使用时，我们只需要<strong>将这个关键字添加到 排序关键字的后面</strong>就可以指定输出按照某个关键字，按照某种排序方式进行排序了。</p>
+<p>按照一个关键字进行降序：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> u_id <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p>按照两个关键字进行降序：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> u_id <span class="keyword">DESC</span>,u_name <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p>（注意这里两个关键字都是使用降序排序，就要在<strong>每个关键字后面都添加上 DESC/ ASC 关键字</strong>。</p>
+<p>​    其中升序排序是默认的排序方式，可以不用显示声明）</p>
+<h2 id="3-查询过滤"><a href="#3-查询过滤" class="headerlink" title="3. 查询过滤"></a>3. 查询过滤</h2><p>​            查询过滤的内容包括 ： 单个值检查、不匹配检查、范围值检查、空值检查。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>操作符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>等于</td>
+<td>=</td>
+</tr>
+<tr>
+<td>不等于</td>
+<td>&lt;&gt;</td>
+</tr>
+<tr>
+<td>不等于</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>小于</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>小于等于</td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>大于</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>大于等于</td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>在指定两个值之间</td>
+<td>BETWEEN</td>
+</tr>
+<tr>
+<td>等于空</td>
+<td>IS NULL</td>
+</tr>
+<tr>
+<td>非空</td>
+<td>IS NOT NULL</td>
+</tr>
+</tbody></table>
+<p>例句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u_id,u_name <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> u_name <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">AND</span> u_id <span class="keyword">BETWEEN</span> <span class="number">2</span> <span class="keyword">AND</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-组合查询"><a href="#4-组合查询" class="headerlink" title="4. 组合查询"></a>4. 组合查询</h2><p>​        组合查询需要用到的关键词有 AND ，OR，IN。这里，and 是 且 的意思，or 是 或 的意思。要注意的是这两个的优先级不同。<strong>AND 的优先级要高于 OR</strong> 。所以我们在需要这两个关键词同时出现时，一定要注意给相应的地方加上括号。</p>
+<p>例句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> (u_id&gt;<span class="number">3</span> <span class="keyword">OR</span> u_id&lt;<span class="number">2</span>) <span class="keyword">AND</span> u_name <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<p>​    组合查询中还有一个关键词就是 IN ，==IN 操作符用来指定条件范围==，范围中每个条件都可以匹配。<strong>一般 IN 操作符的后面都跟着括号，这些括号里面的就是条件的范围</strong>。<strong>括号中可以是具体的值，也可以包含其他 SELECT 语句。</strong></p>
+<p>IN 操作符的优点：</p>
+<ul>
+<li>在使用长的合法选项清单时，IN 操作符的语法更清楚且更加直观</li>
+<li>在使用 IN 时，计算的次序更容易管理</li>
+<li>IN 操作符一般比 OR 操作符清单执行更快</li>
+<li>可以包含其他 SELECT 语句，使得能够更动态地建立 WHERE 子句。</li>
+</ul>
+<p><strong>IN 操作符可以和 NOT 操作符进行组合成 NOT IN ，表示不再 IN 表示的范围内。</strong></p>
+<blockquote>
+<p>MySQL 中的 NOT ， MySQL 支持使用 NOT 对 IN、BETWEEN 和 EXISTS 子句取反，其他DBMS 允许NOT 对各种条件取反。</p>
+</blockquote>
+<h2 id="5-通配符过滤"><a href="#5-通配符过滤" class="headerlink" title="5. 通配符过滤"></a>5. 通配符过滤</h2><p>​        在使用通配符过滤之前需要用到的<strong>关键字 是 LIKE</strong> ，通配符有两个 一个是 % ，另一个是 _ 。其中 <strong>百分号可以匹配任意字符，除了null； 下划线  只能是匹配一个任意字符</strong>。</p>
+<p>例句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> u_name <span class="keyword">LIKE</span> <span class="string">&#x27;%ss%&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> u_name <span class="keyword">LIKE</span> <span class="string">&#x27;_s_s%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>不要过度使用通配符</li>
+<li>除非必要，不要将它放在搜索模式的开始处</li>
+<li>注意通配符的位置</li>
+</ul>
+<p>上面这些注意大多是告诉你小心使用通配符，因为使用通配符是有代价的：通配符搜素的处理一般要比其他搜索花更长时间。</p>
+<h2 id="6-利用正则表达式进行搜索"><a href="#6-利用正则表达式进行搜索" class="headerlink" title="6. 利用正则表达式进行搜索"></a>6. 利用正则表达式进行搜索</h2><p>​        通配符可以胜任一些简单的匹配搜索场景，但是一些较复杂的场景就不能用了，这里就可以利用正则表达式进行搜索。这里不会描述关于正则表达式的一些知识，关于这部分的知识之后再去学习。这里只是记录关于这一种搜索方式的用法。</p>
+<p>==（链接位置）==</p>
+<p>利用正则表达式进行搜索和利用通配符进行过滤的操作很像，只是关键字从 LIKE 换成了 ==REGEXP==，REGEXP 关键字后面跟上相关的正则表达式，下面是例句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prod_name <span class="keyword">FROM</span> products <span class="keyword">WHERE</span> prod_name REGEXP <span class="string">&#x27;.000&#x27;</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> prod_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-创建计算字段"><a href="#7-创建计算字段" class="headerlink" title="7. 创建计算字段"></a>7. 创建计算字段</h2><p>​        有时候我们需要在显示的时候，新建一个字段。但是这个字段是原来数据库中没有的，我们需要自己创建，并且给这个字段赋值。在这里我们可以完成的操作有：拼接字段、进行算术计算（就是综合几个字段的值得结果）。</p>
+<h3 id="7-1-字段拼接"><a href="#7-1-字段拼接" class="headerlink" title="7.1 字段拼接"></a>7.1 字段拼接</h3><p>​        这里我们可以用到 RTrim() 函数将数据右侧多余的空格删除，用来整理数据。使用 Concat() 函数进行字符串的拼接。下面是例句，即进行了右侧空格删除也进行了字符串拼接。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Concat</span>(<span class="keyword">RTrim</span>(vend_name),<span class="string">&#x27; (&#x27;</span>,<span class="keyword">RTrim</span>(vend_country),<span class="string">&#x27;)&#x27;</span>) <span class="keyword">AS</span> vend_title</span><br><span class="line"><span class="keyword">FROM</span> vendors</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> vend_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-2-进行算术计算"><a href="#7-2-进行算术计算" class="headerlink" title="7.2 进行算术计算"></a>7.2 进行算术计算</h3><p>​        在SQL语句中，我们可以用 + - * / 这些基本的算术符号进行字段间的运算。下面是例句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prod_id,quantity,item_price,quantity*item_price <span class="keyword">AS</span> expanded_price</span><br><span class="line"><span class="keyword">FROM</span> orderitems</span><br><span class="line"><span class="keyword">WHERE</span> order_num = <span class="number">2005</span>;</span><br></pre></td></tr></table></figure>
+
+
+
 
       
 
@@ -257,7 +368,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -313,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/14/git%E4%B8%8Egithub/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E5%85%A8%E5%A4%8D%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +438,9 @@
   
 <nav id="article-nav">
   
-    <a href="../../17/%E5%88%9D%E6%8E%A2Servlet-%E4%B8%80/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          初探Servlet(一)
-        
-      </div>
-    </a>
   
-  
-    <a href="../../12/JSP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JSP学习（三）</div>
+    <a href="../../01/MyBatis%E5%85%A5%E9%97%A8%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MyBatis入门参考文档</div>
       <i class="icon-circle-right"></i>
     </a>
   
